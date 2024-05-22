@@ -1,24 +1,37 @@
-import logo from './logo.svg';
+import { useContext } from 'react';
 import './App.css';
+import { ThemeProvider, ThemeContext } from './component/ThemeContext';
+import ThemeToggle from './component/ThemeToggle';
+import Counter from './component/Counter';
+import FetchData from './component/FetchData';
+import Axios from './component/Axios';
+
+
+const AppContent = () => {
+  const { theme } = useContext(ThemeContext);
+  return (
+    <div className={`App ${theme}`}>
+      <ThemeToggle />
+      <h1>Hello, Theme Switcher!</h1>
+    </div>
+  );
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <AppContent />
+
+      <hr />
+      <Counter />
+      <hr />
+
+      <FetchData />
+      <hr />
+
+      <Axios />
+    </ThemeProvider>
+
   );
 }
 

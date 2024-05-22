@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+/* App.css */
+.App {
+  text-align: center;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.App.light {
+  background-color: white;
+  color: black;
+}
+
+.App.dark {
+  background-color: black;
+  color: white;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+
